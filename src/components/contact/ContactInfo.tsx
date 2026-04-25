@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin } from 'lucide-react';
 
 const ContactInfo = () => {
   return (
@@ -51,6 +51,39 @@ const ContactInfo = () => {
               </p>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-lg border border-gray-100 p-6 mb-8 shadow-sm">
+        <h3 className="font-bold text-primary mb-4">Follow on Social Media</h3>
+        <div className="flex flex-wrap gap-3">
+          <a
+            href="https://www.facebook.com/share/1Fo9NjLWxu/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-gray-700 hover:text-secondary hover:border-secondary transition-colors"
+          >
+            <Facebook size={16} />
+            Facebook
+          </a>
+          <a
+            href="https://www.instagram.com/pranav.tsx?igsh=OWpuemNoenFhdjFw&utm_source=qr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-gray-700 hover:text-secondary hover:border-secondary transition-colors"
+          >
+            <Instagram size={16} />
+            Instagram
+          </a>
+          <a
+            href="https://www.linkedin.com/in/shiva-pranav-888a76340/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-gray-700 hover:text-secondary hover:border-secondary transition-colors"
+          >
+            <Linkedin size={16} />
+            LinkedIn
+          </a>
         </div>
       </div>
       

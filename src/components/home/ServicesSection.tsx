@@ -7,32 +7,32 @@ const services = [
   {
     icon: <Code className="text-secondary" size={32} />,
     title: 'Web Development',
-    description: 'Custom website development with clean, efficient code optimized for performance and SEO.',
+    description: 'Custom sites built for speed, SEO, and reliability.',
   },
   {
     icon: <Palette className="text-secondary" size={32} />,
     title: 'UI/UX Design',
-    description: 'User-centered design that delights your audience while driving conversions and engagement.',
+    description: 'Clean user-first design focused on conversions.',
   },
   {
     icon: <Layers className="text-secondary" size={32} />,
     title: 'Branding',
-    description: 'Cohesive brand identity development that communicates your values and resonates with customers.',
+    description: 'Consistent brand identity that builds trust fast.',
   },
   {
     icon: <Globe className="text-secondary" size={32} />,
     title: 'Digital Strategy',
-    description: 'Comprehensive digital strategies tailored to your business goals and target audience.',
+    description: 'Practical strategy aligned with your business goals.',
   },
   {
     icon: <BarChart className="text-secondary" size={32} />,
     title: 'SEO & Analytics',
-    description: 'Data-driven optimization to increase visibility, traffic and meaningful conversions.',
+    description: 'Measure, improve, and grow qualified traffic.',
   },
   {
     icon: <Zap className="text-secondary" size={32} />,
     title: 'Performance Optimization',
-    description: 'Speed up your site with advanced optimization techniques for better user experience.',
+    description: 'Faster load times for better user experience.',
   },
 ];
 
@@ -47,21 +47,23 @@ const ServicesSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="bg-white border border-gray-100 rounded-xl p-8 card-hover reveal"
+              className="bg-white border border-gray-100 rounded-xl p-3 md:p-8 card-hover reveal"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="bg-secondary/10 p-4 inline-block rounded-lg mb-6">
-                {service.icon}
+              <div className="bg-secondary/10 p-2 md:p-4 inline-block rounded-lg mb-3 md:mb-6">
+                <div className="scale-75 md:scale-100 origin-left md:origin-center">
+                  {service.icon}
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-              <p className="text-gray-600 mb-4">{service.description}</p>
+              <h3 className="text-sm md:text-xl font-bold mb-1.5 md:mb-3 leading-snug">{service.title}</h3>
+              <p className="text-gray-600 text-xs md:text-base mb-2 md:mb-4 leading-relaxed">{service.description}</p>
               <Link 
                 to={`/services#${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-                className="text-secondary font-medium inline-flex items-center hover:underline"
+                className="text-secondary font-medium inline-flex items-center hover:underline text-xs md:text-base"
               >
                 Learn More
                 <ArrowRight size={16} className="ml-1" />

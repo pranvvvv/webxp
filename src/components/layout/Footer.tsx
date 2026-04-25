@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -18,16 +18,31 @@ const Footer = () => {
               Creating stunning, high-conversion websites since 2025. We blend design excellence with technical expertise.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-white hover:text-secondary transition-colors">
+              <a
+                href="https://www.facebook.com/share/1Fo9NjLWxu/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-secondary transition-colors"
+                aria-label="Facebook"
+              >
                 <Facebook size={20} />
               </a>
-              <a href="#" className="text-white hover:text-secondary transition-colors">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="text-white hover:text-secondary transition-colors">
+              <a
+                href="https://www.instagram.com/pranav.tsx?igsh=OWpuemNoenFhdjFw&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-secondary transition-colors"
+                aria-label="Instagram"
+              >
                 <Instagram size={20} />
               </a>
-              <a href="#" className="text-white hover:text-secondary transition-colors">
+              <a
+                href="https://www.linkedin.com/in/shiva-pranav-888a76340/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-secondary transition-colors"
+                aria-label="LinkedIn"
+              >
                 <Linkedin size={20} />
               </a>
             </div>

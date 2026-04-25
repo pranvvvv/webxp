@@ -91,6 +91,9 @@ const portfolioItems = [
 
 const categories = ['All', 'AI Business Tool', 'QR Code Menu', 'Websites'];
 
+const FALLBACK_PORTFOLIO_IMAGE =
+  'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop';
+
 const PortfolioSection = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   
@@ -108,12 +111,12 @@ const PortfolioSection = () => {
           </p>
         </div>
         
-        <div className="flex flex-wrap justify-center gap-2 mb-10 reveal">
+        <div className="flex flex-wrap justify-center gap-2 mb-8 md:mb-10 reveal">
           {categories.map((category, index) => (
             <button
               key={index}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-full transition-all font-medium ${
+              className={`px-4 py-2 md:px-6 md:py-3 rounded-full transition-all text-sm md:text-base font-medium ${
                 activeCategory === category
                   ? 'bg-secondary text-white shadow-lg'
                   : 'bg-white text-gray-600 hover:bg-gray-100 shadow-sm'
@@ -124,7 +127,7 @@ const PortfolioSection = () => {
           ))}
          </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {filteredItems.map((item, index) => (
             <div 
               key={index} 
@@ -132,13 +135,16 @@ const PortfolioSection = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative overflow-hidden">
-                <img 
-                  src={item.image} 
+                <img
+                  src={item.image}
                   alt={item.title}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-52 md:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  onError={(event) => {
+                    event.currentTarget.src = FALLBACK_PORTFOLIO_IMAGE;
+                  }}
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="bg-secondary text-white px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-secondary text-white px-3 py-1 rounded-full text-xs md:text-sm font-medium">
                     {item.category}
                   </span>
                 </div>
@@ -155,11 +161,11 @@ const PortfolioSection = () => {
                 </div>
               </div>
               
-              <div className="p-6">
-                <h3 className="font-bold text-xl mb-3 text-primary group-hover:text-secondary transition-colors">
+              <div className="p-4 md:p-6">
+                <h3 className="font-bold text-lg md:text-xl mb-2 md:mb-3 text-primary group-hover:text-secondary transition-colors leading-snug">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-3 md:mb-4">
                   {item.description}
                 </p>
                 <div className="flex items-center justify-between">

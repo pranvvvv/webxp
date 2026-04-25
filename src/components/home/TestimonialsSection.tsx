@@ -1,30 +1,39 @@
 
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MessageCircle, Star } from 'lucide-react';
 
 const testimonials = [
   {
     name: 'Sarah Johnson',
-    company: 'TechVision CEO',
+    company: 'Founder, TechVision',
     image: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=150&h=150&fit=crop&crop=face',
-    quote: "WebXp transformed our digital presence completely. The new website has increased our conversions by 45% and provided an exceptional user experience for our customers.",
+    quote: "I came to WebXp after wasting months with a generic template site. In the first 6 weeks after launch, we started getting consistent qualified enquiries through the contact form. The process felt personal, fast, and honestly stress-free.",
     rating: 5,
   },
   {
     name: 'Michael Chen',
-    company: 'GreenLeaf Founder',
+    company: 'Founder, GreenLeaf Interiors',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-    quote: "Working with WebXp was a game-changer for our startup. They delivered a website that perfectly captures our brand identity and has helped us establish credibility in a competitive market.",
+    quote: "I was hesitant about investing in a new website, but WebXp made every decision simple. Our brand finally looks premium, and new leads now mention our website in discovery calls. It paid for itself faster than expected.",
     rating: 5,
   },
   {
     name: 'Emily Rodriguez',
-    company: 'Fusion Marketing Director',
+    company: 'Marketing Director, Fusion Growth',
     image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
-    quote: "The team at WebXp doesn't just build websites - they create digital experiences that drive real business results. Our e-commerce sales have doubled since the redesign.",
-    rating: 4,
+    quote: "What stood out was how they combined design with strategy. Visitors stay longer, bounce rate is down, and our booking flow finally feels smooth on mobile. The site now works like a 24/7 salesperson.",
+    rating: 5,
   },
 ];
+
+const trustHighlights = [
+  'Fast WhatsApp replies',
+  'Clear scope before starting',
+  'Built for mobile-first conversions',
+];
+
+const FALLBACK_AVATAR =
+  'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face';
 
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -43,8 +52,18 @@ const TestimonialsSection = () => {
         <div className="text-center max-w-3xl mx-auto mb-16 reveal">
           <h2 className="section-title">Client Testimonials</h2>
           <p className="section-subtitle">
-            Don't just take our word for it. Here's what our clients say about working with WebXp.
+            Real feedback from founders and teams who wanted a website that actually brings enquiries.
           </p>
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-4">
+            {trustHighlights.map((item) => (
+              <span
+                key={item}
+                className="text-xs md:text-sm text-primary bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-full"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
         
         <div className="max-w-4xl mx-auto relative reveal">
@@ -55,7 +74,7 @@ const TestimonialsSection = () => {
             >
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="min-w-full px-4">
-                  <div className="bg-white rounded-2xl p-8 md:p-10 shadow-lg">
+                  <div className="bg-white rounded-2xl p-6 md:p-10 shadow-lg border border-gray-100">
                     <div className="flex gap-1 mb-6">
                       {[...Array(5)].map((_, i) => (
                         <Star 
@@ -66,15 +85,18 @@ const TestimonialsSection = () => {
                         />
                       ))}
                     </div>
-                    <blockquote className="text-gray-700 text-lg md:text-xl mb-8 italic">
+                    <blockquote className="text-gray-700 text-base md:text-xl mb-8 italic leading-relaxed">
                       "{testimonial.quote}"
                     </blockquote>
                     <div className="flex items-center">
                       <div className="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-gray-200">
-                        <img 
-                          src={testimonial.image} 
-                          alt={testimonial.name} 
+                        <img
+                          src={testimonial.image}
+                          alt={testimonial.name}
                           className="w-full h-full object-cover"
+                          onError={(event) => {
+                            event.currentTarget.src = FALLBACK_AVATAR;
+                          }}
                         />
                       </div>
                       <div>
@@ -115,6 +137,21 @@ const TestimonialsSection = () => {
             >
               <ChevronRight size={24} />
             </button>
+          </div>
+
+          <div className="text-center mt-8 md:mt-10">
+            <p className="text-sm md:text-base text-gray-600 mb-4">
+              Want similar results for your business? Send a quick message and get a clear plan.
+            </p>
+            <a
+              href="https://wa.me/916304308774?text=Hi%20WebXp%2C%20I%20want%20a%20website%20that%20gets%20more%20leads.%20Can%20we%20discuss%20my%20project%3F"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              Message WebXp on WhatsApp
+              <MessageCircle size={18} className="ml-2" />
+            </a>
           </div>
         </div>
       </div>

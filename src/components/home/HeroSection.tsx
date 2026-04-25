@@ -5,27 +5,27 @@ import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
-    <section className="relative h-screen bg-gradient-to-br from-white to-gray-100 flex items-center">
+    <section className="relative min-h-[88vh] md:h-screen bg-gradient-to-br from-white to-gray-100 flex items-center py-16 md:py-0">
       <div className="container-custom relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="animate-fade-in">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-5 md:mb-6 leading-tight">
               We Build <span className="gradient-text">Digital Experiences</span> That Convert
             </h1>
-            <p className="text-lg md:text-xl mb-8 text-gray-600 max-w-lg">
+            <p className="text-base md:text-xl mb-6 md:mb-8 text-gray-600 max-w-lg leading-relaxed">
               WebXp is a premier design agency crafting beautiful, high-performance websites that drive results for ambitious brands.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 max-w-lg">
               <a 
                 href="https://wa.me/916304308774?text=I'm interested in a free consultation for my website" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="btn-primary"
+                className="btn-primary w-full"
               >
                 Get Free Consultation
                 <ArrowRight size={18} className="ml-2" />
               </a>
-              <Link to="/portfolio" className="btn-outline">
+              <Link to="/portfolio" className="btn-outline w-full">
                 View Our Work
               </Link>
             </div>
