@@ -25,7 +25,7 @@ const HeroSection = () => {
                 Get Free Consultation
                 <ArrowRight size={18} className="ml-2" />
               </a>
-              <Link to="/portfolio" className="btn-outline w-full">
+              <Link to="/recent-work" className="btn-outline w-full">
                 View Our Work
               </Link>
             </div>

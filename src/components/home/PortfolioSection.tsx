@@ -102,7 +102,7 @@ const PortfolioSection = () => {
     : portfolioItems.filter(item => item.category === activeCategory);
   
   return (
-    <section className="section-padding bg-gray-50">
+    <section id="portfolio" className="section-padding bg-gray-50">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-12 reveal">
           <h2 className="section-title">Our Latest Projects</h2>

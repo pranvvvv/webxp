@@ -99,15 +99,118 @@
 }
 
 .reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s;
+  /* Make reveal elements visible by default to avoid blank gaps
+     (if you want entrance animations, add an IntersectionObserver
+     to toggle the 'active' class instead). */
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 .reveal.active {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
+
+/* Compact fade-up animation for small cards */
+.reveal-anim {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeUp 0.6s cubic-bezier(.2,.9,.3,1) forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating attention animation for testimonials */
+.floating-attention {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+@keyframes floatSlow {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* Subtle pulse for CTA inside testimonials */
+.floating-attention .btn-primary {
+  animation: pulse 3.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(34,139,230,0.08); }
+  70% { box-shadow: 0 10px 30px -12px rgba(34,139,230,0.12); }
+  100% { box-shadow: 0 0 0 0 rgba(34,139,230,0); }
+}
+
+/* Per-card floating animation to draw attention */
+.testimonial-card {
+  opacity: 0;
+  transform: translateY(8px) scale(0.99);
+}
+
+/* Pop-in animation when card enters the viewport */
+.testimonial-card.in-view {
+  opacity: 1;
+  transform: none;
+  animation: popIn 420ms cubic-bezier(.2,.9,.3,1) both, cardFloat 6s ease-in-out 1s infinite;
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: translateY(12px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes cardFloat {
+  0% { transform: translateY(0) translateZ(0); }
+  50% { transform: translateY(-3px) translateZ(0); }
+  100% { transform: translateY(0) translateZ(0); }
+}
+
+/* Disable complex motion for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-card.in-view { animation: none; }
+  .testimonial-card { transition: none; }
+}
+
+/* Reduce animation on small screens for stability */
+@media (max-width: 768px) {
+  .testimonial-card { animation: none; }
+}
+
+/* Full-screen overlay used to draw attention to testimonials on first load */
+.testimonials-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 50;
+  pointer-events: none;
+  animation: overlayFade 700ms ease-out forwards;
+}
+
+@keyframes overlayFade {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+/* Highlight the edges of the testimonials area while overlay is visible */
+.highlight-mode .max-w-4xl, .highlight-mode .testimonial-card {
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.22), 0 10px 30px rgba(2,6,23,0.06);
+  border-color: rgba(59,130,246,0.35);
+}
+
+/* keep overlay below any fixed global nav but above content */
+.testimonials-overlay { z-index: 60; }
 
 .gradient-text {
   @apply text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent;

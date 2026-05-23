@@ -49,7 +49,7 @@ const TimelineSection = () => {
           
           <div className="mt-6 bg-white p-5 md:p-6 rounded-xl shadow-md border border-gray-100 text-gray-700">
             <p className="text-sm md:text-base leading-relaxed">
-              You can view our recent work and design style here: <a href="https://github.com/pranvvvv" className="text-secondary hover:underline" target="_blank" rel="noopener noreferrer">https://pranvvvv.github.com</a>
+              You can view our recent work and design style here: <a href="https://shivapranavportfolio-io.vercel.app/#about" className="text-secondary hover:underline" target="_blank" rel="noopener noreferrer">https://shivapranavportfolio.com</a>
             </p>
           </div>
         </div>
