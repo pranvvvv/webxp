@@ -112,6 +112,9 @@ const ContactForm = () => {
             <option value="Mid Package">Mid Package Inquiry</option>
             <option value="Advanced Package">Advanced Package Inquiry</option>
             <option value="Custom Project">Custom Project</option>
+            <option disabled>── Career Launch Package ──</option>
+            <option value="Career Launch Package">Career Launch Package (£849–£1,250)</option>
+            <option value="Career Launch - Project Add-On">Career Launch — Project Add-On (from £150)</option>
             <option value="Other">Other</option>
           </select>
         </div>
