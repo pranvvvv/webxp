@@ -22,7 +22,7 @@ const CareerLaunchBanner = () => (
             <span className="gradient-text">From £849 — All-in-One.</span>
           </h2>
           <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-            CV redesign · LinkedIn · ATS resume · portfolio website · content writing · 1 month support. Everything a UK student needs to get hired — in one package.
+            CV redesign · LinkedIn · ATS resume · portfolio website · content writing · GitHub profile ⭐ · 1 month support. Everything a UK student needs to get hired — in one package.
           </p>
         </div>
 

@@ -10,6 +10,7 @@ const services = [
   { icon: <PenTool size={18} />, title: 'Content Writing', desc: 'Personal statements, cover letters, and bio copy.' },
   { icon: <Globe size={18} />, title: 'Portfolio Website', desc: 'Custom, mobile-responsive site to showcase your work.' },
   { icon: <Headphones size={18} />, title: '1 Month Support', desc: '30 days of updates and fixes after handover.' },
+  { icon: <Code size={18} />, title: 'GitHub Profile Optimisation ⭐', desc: 'A standout GitHub profile with pinned repos, a polished README, and activity that impresses hiring managers.' },
 ];
 
 const faqs = [
@@ -142,7 +143,7 @@ const CareerLaunch = () => {
                 </div>
                 <p className="text-gray-400 text-xs mb-4">Exact price confirmed on your free consultation call.</p>
                 <ul className="space-y-2 mb-5">
-                  {['CV Redesign', 'LinkedIn Optimisation', 'ATS-Friendly Resume', 'Content Writing', 'Portfolio Website', '1 Month Support'].map((item) => (
+                  {['CV Redesign', 'LinkedIn Optimisation', 'ATS-Friendly Resume', 'Content Writing', 'Portfolio Website', '1 Month Support', 'GitHub Profile Optimisation ⭐'].map((item) => (
                     <li key={item} className="flex items-center text-xs md:text-sm text-gray-700">
                       <Check size={14} className="text-secondary mr-2 shrink-0" />{item}
                     </li>
