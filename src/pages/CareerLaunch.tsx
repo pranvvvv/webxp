@@ -43,13 +43,14 @@ const CareerLaunch = () => {
     document.title = 'Career Launch Package — WebXp';
     window.scrollTo(0, 0);
 
-    const script = document.createElement('script');
-    script.src = 'https://assets.refrens.com/venus/venera.1.4.3.js';
-    script.defer = true;
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => { document.body.removeChild(script); };
+    // Only inject once — Refrens auto-scans for .refrens-contact-form on load
+    if (!document.getElementById('refrens-venera')) {
+      const script = document.createElement('script');
+      script.id = 'refrens-venera';
+      script.src = 'https://assets.refrens.com/venus/venera.1.4.3.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
   }, []);
 
   return (
