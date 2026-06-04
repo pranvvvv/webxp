@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import RecentWork from "./pages/RecentWork";
+import CareerLaunch from "./pages/CareerLaunch";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/recent-work" element={<RecentWork />} />
+          <Route path="/career-launch" element={<CareerLaunch />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
