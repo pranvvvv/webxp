@@ -227,7 +227,7 @@ const TestimonialsSection = () => {
               Want similar results for your business? Send a quick message and get a clear plan.
             </p>
             <a
-              href="https://wa.me/916304308774?text=Hi%20WebXp%2C%20I%20want%20a%20website%20that%20gets%20more%20leads.%20Can%20we%20discuss%20my%20project%3F"
+              href="https://wa.me/447415960499?text=Hi%20WebXp%2C%20I%20want%20a%20website%20that%20gets%20more%20leads.%20Can%20we%20discuss%20my%20project%3F"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"

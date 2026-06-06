@@ -17,7 +17,7 @@ const HeroSection = () => {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 max-w-lg">
               <a 
-                href="https://wa.me/916304308774?text=I'm interested in a free consultation for my website" 
+                href="https://wa.me/447415960499?text=I'm interested in a free consultation for my website" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="btn-primary w-full"

@@ -186,7 +186,7 @@ const PortfolioSection = () => {
         
         <div className="text-center mt-16 reveal">
           <a 
-            href="https://wa.me/916304308774?text=Hi! I'm interested in your web development services. Can we discuss my project?"
+            href="https://wa.me/447415960499?text=Hi! I'm interested in your web development services. Can we discuss my project?"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary text-lg px-8 py-4"

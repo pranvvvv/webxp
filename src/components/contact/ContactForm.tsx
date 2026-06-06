@@ -32,8 +32,8 @@ const ContactForm = () => {
       setIsSubmitting(false);
       
       // Open WhatsApp with the message
-      const message = `Hello, my name is ${formData.name}. I'm reaching out about: ${formData.subject}. ${formData.message}`;
-      window.open(`https://wa.me/916304308774?text=${encodeURIComponent(message)}`, '_blank');
+      const message = `Hello WebXp, I have submitted a contact form:\n- Name: ${formData.name}\n- Email: ${formData.email}\n- Phone: ${formData.phone || 'N/A'}\n- Subject: ${formData.subject}\n- Message: ${formData.message}`;
+      window.open(`https://wa.me/447415960499?text=${encodeURIComponent(message)}`, '_blank');
       
       // Reset form
       setFormData({
@@ -143,7 +143,7 @@ const ContactForm = () => {
             {isSubmitting ? 'Sending...' : 'Send Message'}
           </button>
           <a 
-            href="https://wa.me/916304308774" 
+            href="https://wa.me/447415960499" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-secondary hover:text-secondary-600 font-medium"

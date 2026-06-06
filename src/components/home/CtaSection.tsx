@@ -20,7 +20,7 @@ const CtaSection = () => {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 justify-center max-w-2xl mx-auto">
             <a 
-              href="https://wa.me/916304308774?text=I'd like to discuss my web project" 
+              href="https://wa.me/447415960499?text=I'd like to discuss my web project" 
               target="_blank"
               rel="noopener noreferrer"
               className="bg-secondary hover:bg-secondary-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-md font-medium transition-all duration-300 inline-flex items-center justify-center w-full"
@@ -29,11 +29,11 @@ const CtaSection = () => {
               <ArrowRight size={18} className="ml-2" />
             </a>
             <a 
-              href="tel:+916304308774" 
+              href="tel:+447415960499" 
               className="border-2 border-white hover:bg-white/10 text-white px-6 md:px-8 py-3 md:py-[14px] rounded-md font-medium transition-all duration-300 inline-flex items-center justify-center w-full"
             >
               <Phone size={18} className="mr-2" />
-              Call: 6304308774
+              Call: +44 7415 960499
             </a>
           </div>
           

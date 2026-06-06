@@ -121,7 +121,7 @@ const PricingSection = () => {
                   <p className="text-[11px] text-gray-500 mt-2 md:hidden">+ more included</p>
                 </div>
                 <a
-                  href={`https://wa.me/916304308774?text=I'm interested in the ${pkg.name} package`}
+                  href={`https://wa.me/447415960499?text=I'm interested in the ${pkg.name} package`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary w-full text-xs md:text-base px-2 md:px-6"
