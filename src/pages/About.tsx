@@ -9,7 +9,7 @@ import CtaSection from '../components/home/CtaSection';
 const About = () => {
   useEffect(() => {
     // Change page title
-    document.title = 'About Us - WebXp';
+    document.title = 'About Us - GetPixage';
   }, []);
 
   return (

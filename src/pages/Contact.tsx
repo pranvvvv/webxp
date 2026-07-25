@@ -4,11 +4,12 @@ import Layout from '../components/layout/Layout';
 import ContactHero from '../components/contact/ContactHero';
 import ContactForm from '../components/contact/ContactForm';
 import ContactInfo from '../components/contact/ContactInfo';
+import Reveal from '@/components/ui/Reveal';
 
 const Contact = () => {
   useEffect(() => {
     // Change page title
-    document.title = 'Contact Us - WebXp';
+    document.title = 'Contact Us - GetPixage';
   }, []);
 
   return (
@@ -17,8 +18,12 @@ const Contact = () => {
       <div className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <ContactForm />
-            <ContactInfo />
+            <Reveal>
+              <ContactForm />
+            </Reveal>
+            <Reveal delay={120}>
+              <ContactInfo />
+            </Reveal>
           </div>
         </div>
       </div>

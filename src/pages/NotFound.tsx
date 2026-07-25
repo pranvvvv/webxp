@@ -5,7 +5,7 @@ import Layout from '../components/layout/Layout';
 
 const NotFound = () => {
   useEffect(() => {
-    document.title = 'Page Not Found | WebXp';
+    document.title = 'Page Not Found | GetPixage';
   }, []);
   
   return (

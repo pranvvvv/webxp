@@ -76,15 +76,18 @@ const PricingSection = () => {
         
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 max-w-6xl mx-auto reveal">
           {packages.map((pkg, index) => (
-            <div 
-              key={index} 
-              className={`rounded-lg shadow-lg overflow-hidden transition-transform hover:-translate-y-2 duration-300 ${
-                pkg.featured ? 'border-2 border-secondary relative' : 'border border-gray-200'
-              }`}
-            >
+            <div key={index} className={pkg.featured ? 'group relative' : ''}>
+              {pkg.featured && (
+                <div className="absolute -inset-[2px] rounded-lg bg-gradient-to-r from-secondary via-accent to-secondary bg-200 animate-gradient-x opacity-80 group-hover:opacity-100 blur-[2px] transition-opacity duration-500" />
+              )}
+              <div
+                className={`relative rounded-lg shadow-lg overflow-hidden transition-transform hover:-translate-y-2 duration-300 ${
+                  pkg.featured ? 'border-2 border-secondary' : 'border border-gray-200'
+                }`}
+              >
               {pkg.featured && (
                 <div className="bg-secondary text-white text-center py-1 text-xs md:text-sm font-medium">
-                  Popular Choice
+                  ⭐ Popular Choice
                 </div>
               )}
               <div className="bg-white p-3 md:p-6">
@@ -126,8 +129,15 @@ const PricingSection = () => {
                   rel="noopener noreferrer"
                   className="btn-primary w-full text-xs md:text-base px-2 md:px-6"
                 >
-                  Choose Plan
+                  {pkg.featured && (
+                    <span
+                      className="absolute inset-0 bg-shimmer bg-[length:200%_100%] animate-shimmer"
+                      aria-hidden="true"
+                    />
+                  )}
+                  <span className="relative">Choose Plan</span>
                 </a>
+              </div>
               </div>
             </div>
           ))}

@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -8,30 +9,19 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  // Scroll reveal effect
+  const location = useLocation();
+
   useEffect(() => {
-    const revealElements = document.querySelectorAll('.reveal');
-    
-    const reveal = () => {
-      revealElements.forEach((element) => {
-        const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < windowHeight - elementVisible) {
-          element.classList.add('active');
-        }
-      });
-    };
-    
-    window.addEventListener('scroll', reveal);
-    reveal(); // Initial check
-    
-    return () => {
-      window.removeEventListener('scroll', reveal);
-    };
-  }, []);
-  
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const timeout = setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+      return () => clearTimeout(timeout);
+    }
+    window.scrollTo(0, 0);
+  }, [location.pathname, location.hash]);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />

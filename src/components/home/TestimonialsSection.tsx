@@ -1,16 +1,19 @@
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, MessageCircle, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Reveal from '@/components/ui/Reveal';
 
 const testimonials = [
   {
     name: 'Navtej',
     company: 'TrainWithTej',
-    image: '/Screenshot%202026-05-23%20172508.png',
+    domain: 'trainwithtej.com',
+    url: 'https://www.trainwithtej.com/',
+    screenshot: '/portfolio-trainwithtej.webp',
     quote: (
       <>
-        "WebXp helped us launch a clean, conversion-first site for TrainWithTej — bookings and class sign-ups started coming in within days. See the work: "
+        "GetPixage helped us launch a clean, conversion-first site for TrainWithTej — bookings and class sign-ups started coming in within days. See the work: "
         <a href="https://www.trainwithtej.com/" target="_blank" rel="noopener noreferrer" className="text-secondary underline ml-1">
           trainwithtej.com
         </a>
@@ -22,10 +25,12 @@ const testimonials = [
   {
     name: 'Auravein.store',
     company: 'E‑commerce Store',
-    image: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=150&h=150&fit=crop&crop=face',
+    domain: 'auravein.store',
+    url: 'https://www.auravein.store/',
+    screenshot: '/portfolio-auravein.webp',
     quote: (
       <>
-        "We needed a fast, trustworthy storefront. WebXp delivered a polished e‑commerce experience for Auravein with smooth checkout and clear product pages — see it here: "
+        "We needed a fast, trustworthy storefront. GetPixage delivered a polished e‑commerce experience for Auravein with smooth checkout and clear product pages — see it here: "
         <a href="https://www.auravein.store/" target="_blank" rel="noopener noreferrer" className="text-secondary underline ml-1">
           auravein.store
         </a>
@@ -37,10 +42,12 @@ const testimonials = [
   {
     name: 'DRRKS Consultancy',
     company: 'Consultancy & Enquiries',
-    image: '/WhatsApp%20Image%202026-05-23%20at%205.29.51%20PM.jpeg',
+    domain: 'drrksconsultancy.com',
+    url: 'https://www.drrksconsultancy.com/#enquire',
+    screenshot: '/portfolio-drrksconsultancy.webp',
     quote: (
       <>
-        "Our enquiries and contact conversions improved after WebXp redesigned the site and clarified the enquiry flow — check the result: "
+        "Our enquiries and contact conversions improved after GetPixage redesigned the site and clarified the enquiry flow — check the result: "
         <a href="https://www.drrksconsultancy.com/#enquire" target="_blank" rel="noopener noreferrer" className="text-secondary underline ml-1">
           drrksconsultancy.com
         </a>
@@ -52,196 +59,160 @@ const testimonials = [
 ];
 
 const trustHighlights = [
+  '50+ projects delivered',
   'Fast WhatsApp replies',
   'Clear scope before starting',
   'Built for mobile-first conversions',
 ];
 
-const FALLBACK_AVATAR =
-  'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face';
-
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const cardsRef = useRef<HTMLDivElement | null>(null);
-  const [introActive, setIntroActive] = useState(true);
-  
+
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1));
   };
-  
+
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1));
   };
-  
-  useEffect(() => {
-    const container = cardsRef.current;
-    if (!container) return;
-
-    const cards = Array.from(container.querySelectorAll('.testimonial-card')) as HTMLElement[];
-    const prefersReduced = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (prefersReduced) {
-      // Respect reduced motion: reveal everything immediately
-      cards.forEach((c) => c.classList.add('in-view'));
-      setIntroActive(false);
-      return;
-    }
-
-    // Intro sequence on first load: overlay + sequential pop-in (subtle preset)
-    setIntroActive(true);
-    cards.forEach((card, i) => {
-      window.setTimeout(() => {
-        card.classList.add('in-view');
-      }, i * 180);
-    });
-
-    const totalDuration = cards.length * 180 + 700;
-    const finishTimer = window.setTimeout(() => {
-      setIntroActive(false);
-    }, totalDuration);
-
-    // After the intro, set up IntersectionObserver for any cards not yet visible
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const el = entry.target as HTMLElement;
-          if (entry.isIntersecting) {
-            el.classList.add('in-view');
-            obs.unobserve(el);
-          }
-        });
-      },
-      { threshold: 0.25 }
-    );
-
-    cards.forEach((c) => {
-      if (!c.classList.contains('in-view')) obs.observe(c);
-    });
-
-    return () => {
-      clearTimeout(finishTimer);
-      obs.disconnect();
-    };
-  }, []);
 
   return (
-    <section className="section-padding bg-white">
-      <div className={`container-custom floating-attention ${introActive ? 'highlight-mode' : ''}`}>
-        {introActive && <div className="testimonials-overlay" aria-hidden />}
-        <div className="text-center max-w-3xl mx-auto mb-16 reveal">
+    <section className="section-padding bg-gray-50">
+      <div className="container-custom">
+        <Reveal className="text-center max-w-3xl mx-auto mb-14">
+          <span className="eyebrow">Social Proof</span>
           <h2 className="section-title">Client Testimonials</h2>
-          <p className="section-subtitle">
+          <p className="section-subtitle mx-auto">
             Real feedback from founders and teams who wanted a website that actually brings enquiries.
           </p>
           <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-4">
             {trustHighlights.map((item) => (
               <span
                 key={item}
-                className="text-xs md:text-sm text-primary bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-full"
+                className="text-xs md:text-sm text-primary bg-secondary/5 border border-secondary/10 px-3 py-1.5 rounded-full"
               >
                 {item}
               </span>
             ))}
           </div>
-        </div>
-        
-          <div className="max-w-4xl mx-auto relative">
+        </Reveal>
+
+        <Reveal delay={100} className="max-w-4xl mx-auto relative">
           <div className="overflow-hidden">
-            <div 
-              ref={cardsRef}
-              className="transition-all duration-500 flex"
+            <div
+              className="transition-transform duration-500 ease-premium flex"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="min-w-full px-4">
-                  <div
-                    className="testimonial-card bg-white rounded-2xl p-6 md:p-10 shadow-lg border border-gray-100 transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl"
-                    style={{ animationDelay: `${index * 0.18}s` }}
-                  >
-                    <div className="flex gap-1 mb-4 md:mb-6">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          size={18}
-                          fill={i < testimonial.rating ? '#F59E0B' : 'none'}
-                          stroke={i < testimonial.rating ? '#F59E0B' : '#D1D5DB'}
-                        />
-                      ))}
-                    </div>
-                    <blockquote className="text-gray-700 text-base md:text-lg mb-6 italic leading-relaxed">
-                      {testimonial.quote}
-                    </blockquote>
-                    <div className="flex items-center">
-                      <div className="w-14 h-14 rounded-full overflow-hidden mr-4 border-2 border-gray-200">
+                  <div className="group relative rounded-2xl">
+                    <div className="absolute -inset-[1.5px] rounded-2xl bg-gradient-to-r from-secondary via-accent to-secondary bg-200 animate-gradient-x opacity-0 group-hover:opacity-100 blur-[2px] transition-opacity duration-500" />
+                  <div className="relative bg-white rounded-2xl overflow-hidden shadow-soft border border-gray-100 transition-all duration-300 ease-premium group-hover:-translate-y-1 group-hover:shadow-premium md:grid md:grid-cols-2">
+                    {/* Real site showcase */}
+                    <a
+                      href={testimonial.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block group border-b md:border-b-0 md:border-r border-gray-100"
+                    >
+                      <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-gray-100 bg-gray-50">
+                        <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-green-400" />
+                        <div className="ml-3 h-4 flex-1 max-w-[180px] bg-white rounded-md border border-gray-100 flex items-center px-2">
+                          <span className="text-[10px] text-gray-400 truncate">{testimonial.domain}</span>
+                        </div>
+                      </div>
+                      <div className="overflow-hidden">
                         <img
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          className="w-full h-full object-cover"
-                          onError={(event) => {
-                            event.currentTarget.src = FALLBACK_AVATAR;
-                          }}
+                          src={testimonial.screenshot}
+                          alt={`${testimonial.company} — a real GetPixage client project`}
+                          loading="lazy"
+                          className="w-full h-48 md:h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
+                    </a>
+
+                    <div className="p-6 md:p-8 flex flex-col justify-center">
+                      <div className="flex gap-1 mb-3 md:mb-4">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star
+                            key={i}
+                            size={16}
+                            className={i < testimonial.rating ? 'fill-accent text-accent' : 'fill-none text-gray-300'}
+                          />
+                        ))}
+                      </div>
+                      <blockquote className="text-gray-700 text-sm md:text-base mb-5 italic leading-relaxed">
+                        {testimonial.quote}
+                      </blockquote>
                       <div>
-                        <h4 className="font-bold text-primary text-base md:text-lg">{testimonial.name}</h4>
+                        <h4 className="font-bold text-primary text-base">{testimonial.name}</h4>
                         <p className="text-gray-600 text-sm">{testimonial.company}</p>
                       </div>
                     </div>
+                  </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-          
+
           <div className="flex justify-center mt-8 gap-4">
-            <button 
+            <button
               onClick={prevSlide}
-              className="p-2 rounded-full bg-white border border-gray-200 hover:bg-gray-50 transition-colors"
+              className="p-2 rounded-full bg-white border border-gray-200 hover:bg-gray-50 hover:border-secondary/30 transition-colors"
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={24} />
             </button>
-            <div className="flex gap-2">
+            <div className="flex gap-2 items-center">
               {testimonials.map((_, index) => (
-                <button 
+                <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    index === currentIndex ? 'bg-secondary w-8' : 'bg-gray-300'
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    index === currentIndex ? 'bg-secondary w-8' : 'bg-gray-300 w-2.5'
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 ></button>
               ))}
             </div>
-            <button 
+            <button
               onClick={nextSlide}
-              className="p-2 rounded-full bg-white border border-gray-200 hover:bg-gray-50 transition-colors"
+              className="p-2 rounded-full bg-white border border-gray-200 hover:bg-gray-50 hover:border-secondary/30 transition-colors"
               aria-label="Next testimonial"
             >
               <ChevronRight size={24} />
             </button>
           </div>
 
-          <div className="text-center mt-8 md:mt-10">
+          <div className="text-center mt-10">
             <p className="text-sm md:text-base text-gray-600 mb-4">
               Want similar results for your business? Send a quick message and get a clear plan.
             </p>
             <a
-              href="https://wa.me/447415960499?text=Hi%20WebXp%2C%20I%20want%20a%20website%20that%20gets%20more%20leads.%20Can%20we%20discuss%20my%20project%3F"
+              href="https://wa.me/447415960499?text=Hi%20GetPixage%2C%20I%20want%20a%20website%20that%20gets%20more%20leads.%20Can%20we%20discuss%20my%20project%3F"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary"
+              className="group btn-primary"
             >
-              Message WebXp on WhatsApp
-              <MessageCircle size={18} className="ml-2" />
+              <span
+                className="absolute inset-0 bg-shimmer bg-[length:200%_100%] animate-shimmer"
+                aria-hidden="true"
+              />
+              <span className="relative flex items-center">
+                Message GetPixage on WhatsApp
+                <MessageCircle size={18} className="ml-2 transition-transform duration-300 group-hover:scale-110" />
+              </span>
             </a>
             <div className="mt-4">
-              <Link to="/recent-work" className="text-secondary font-medium hover:underline ml-4">
+              <Link to="/recent-work" className="text-secondary font-medium hover:underline">
                 View Recent Work →
               </Link>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

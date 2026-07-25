@@ -1,41 +1,39 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Code, Palette, BarChart, Layers, Globe, Zap, ArrowRight } from 'lucide-react';
+import { Code, Palette, Zap, Layers, ShoppingBag, TrendingUp, ArrowRight } from 'lucide-react';
+import Reveal from '@/components/ui/Reveal';
 
 const services = [
   {
-    icon: <Code className="text-secondary" size={28} />,
-    title: 'Websites & Web Apps',
-    description:
-      'Production-ready websites and web apps focused on performance, accessibility, and conversions — responsive and SEO-friendly.',
+    icon: Code,
+    title: 'Website Design & Development',
+    description: 'Production-ready, responsive websites focused on performance, accessibility, and conversions.',
   },
   {
-    icon: <Zap className="text-secondary" size={28} />,
-    title: 'AI Agents Integration',
-    description:
-      'Integrate intelligent AI agents (chat, automation, data workflows) into your systems to save time and increase revenue.',
-  },
-  {
-    icon: <Palette className="text-secondary" size={28} />,
-    title: 'Frontend-Designs Implementation',
-    description:
-      'Implement designs with the Frontend-Designs system — consistent tokens and production-ready components for fast, accurate UIs.',
-  },
-  {
-    icon: <Palette className="text-secondary" size={32} />,
+    icon: Palette,
     title: 'UI/UX Design',
-    description: 'Clean, user-first design focused on conversions and usability.',
+    description: 'Clean, user-first interfaces designed around real usage — not just visuals.',
   },
   {
-    icon: <Layers className="text-secondary" size={32} />,
-    title: 'Branding',
-    description: 'Consistent brand identity systems that build trust quickly.',
+    icon: Zap,
+    title: 'AI Automation',
+    description: 'AI agents and workflow automation that save time on sales, support, and operations.',
   },
   {
-    icon: <BarChart className="text-secondary" size={32} />,
-    title: 'SEO & Analytics',
-    description: 'Measure performance, improve rankings, and grow qualified traffic.',
+    icon: Layers,
+    title: 'SaaS & Landing Pages',
+    description: 'From MVP to polished product — landing pages and SaaS builds that ship fast.',
+  },
+  {
+    icon: ShoppingBag,
+    title: 'E-commerce',
+    description: 'Storefronts with smooth checkout flows and clear, conversion-focused product pages.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'SEO & Performance',
+    description: 'Faster load times, better rankings, and measurable growth in qualified traffic.',
   },
 ];
 
@@ -43,37 +41,39 @@ const ServicesSection = () => {
   return (
     <section id="services" className="section-padding bg-white">
       <div className="container-custom">
-        <div className="text-center max-w-3xl mx-auto mb-12 reveal">
+        <Reveal className="text-center max-w-3xl mx-auto mb-12">
+          <span className="eyebrow">What We Do</span>
           <h2 className="section-title">Our Services</h2>
-          <p className="section-subtitle">
-            WebXP builds high‑impact websites and web apps, integrates AI agents into your business workflows, and delivers designs using the Frontend-Designs system for a fast, consistent frontend.
+          <p className="section-subtitle mx-auto">
+            GetPixage builds high-impact websites and products, integrates AI agents into your workflows,
+            and delivers a consistent, production-ready design system for a fast, polished result.
           </p>
-        </div>
-        
+        </Reveal>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white border border-gray-100 rounded-lg p-3 md:p-5 card-hover reveal-anim"
-              style={{ animationDelay: `${index * 0.08}s` }}
-            >
-              <div className="bg-secondary/10 p-2 md:p-3 inline-block rounded-md mb-3 md:mb-4">
-                <div className="scale-90 md:scale-100 origin-left md:origin-center">
-                  {service.icon}
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <Reveal key={service.title} delay={index * 80}>
+                <div className="card-premium p-5 md:p-6 h-full">
+                  <div className="bg-secondary/10 p-3 inline-flex rounded-xl mb-4">
+                    <Icon className="text-secondary" size={24} />
+                  </div>
+                  <h3 className="text-base md:text-lg font-bold mb-2 leading-snug text-primary">{service.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
                 </div>
-              </div>
-              <h3 className="text-sm md:text-lg font-bold mb-1 md:mb-2 leading-snug">{service.title}</h3>
-              <p className="text-gray-600 text-xs md:text-sm mb-2 leading-relaxed">{service.description}</p>
-              <Link
-                to={`/services#${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-                className="text-secondary font-medium inline-flex items-center hover:underline text-xs"
-              >
-                Learn More
-                <ArrowRight size={14} className="ml-1" />
-              </Link>
-            </div>
-          ))}
+              </Reveal>
+            );
+          })}
         </div>
+
+        <Reveal className="text-center mt-12" delay={150}>
+          <p className="text-gray-500 mb-4">Not sure exactly what you need?</p>
+          <Link to="/contact" className="btn-outline">
+            Let's Talk About Your Project
+            <ArrowRight size={16} className="ml-2" />
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

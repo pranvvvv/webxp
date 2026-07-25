@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { toast } from '@/components/ui/use-toast';
-import { useNavigate } from 'react-router-dom';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -11,9 +10,6 @@ const ContactForm = () => {
     subject: '',
     message: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const navigate = useNavigate();
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -21,33 +17,28 @@ const ContactForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "We'll get back to you as soon as possible.",
-      });
-      setIsSubmitting(false);
-      
-      // Open WhatsApp with the message
-      const message = `Hello WebXp, I have submitted a contact form:\n- Name: ${formData.name}\n- Email: ${formData.email}\n- Phone: ${formData.phone || 'N/A'}\n- Subject: ${formData.subject}\n- Message: ${formData.message}`;
-      window.open(`https://wa.me/447415960499?text=${encodeURIComponent(message)}`, '_blank');
-      
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-      });
-    }, 1000);
+
+    toast({
+      title: "Opening WhatsApp...",
+      description: "Send the pre-filled message to reach us.",
+    });
+
+    // Open WhatsApp with the message
+    const message = `Hello GetPixage, I have submitted a contact form:\n- Name: ${formData.name}\n- Email: ${formData.email}\n- Phone: ${formData.phone || 'N/A'}\n- Subject: ${formData.subject}\n- Message: ${formData.message}`;
+    window.open(`https://wa.me/447415960499?text=${encodeURIComponent(message)}`, '_blank');
+
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: '',
+    });
   };
 
   return (
-    <div className="reveal">
+    <div>
       <h2 className="text-2xl font-bold text-primary mb-6">Send us a message</h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -62,7 +53,7 @@ const ContactForm = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
             />
           </div>
           <div>
@@ -76,7 +67,7 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
             />
           </div>
         </div>
@@ -91,7 +82,7 @@ const ContactForm = () => {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
           />
         </div>
         
@@ -105,7 +96,7 @@ const ContactForm = () => {
             value={formData.subject}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
           >
             <option value="">Select a subject</option>
             <option value="Basic Package">Basic Package Inquiry</option>
@@ -130,17 +121,16 @@ const ContactForm = () => {
             onChange={handleChange}
             required
             rows={5}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
           ></textarea>
         </div>
         
         <div className="flex justify-between items-center">
           <button
             type="submit"
-            disabled={isSubmitting}
             className="btn-primary py-3 px-8"
           >
-            {isSubmitting ? 'Sending...' : 'Send Message'}
+            Send Message
           </button>
           <a 
             href="https://wa.me/447415960499" 

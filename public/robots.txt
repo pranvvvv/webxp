@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://webxp.lovable.app/sitemap.xml
+Sitemap: https://getpixage.com/sitemap.xml
 
 # Specific bot configurations
 User-agent: Googlebot
