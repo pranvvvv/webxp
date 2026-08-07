@@ -206,6 +206,65 @@ const CareerLaunch = () => {
         </div>
       </section>
 
+      {/* ── Portfolio example ── */}
+      <section className="section-padding bg-white" id="portfolio-example">
+        <div className="container-custom">
+          <div className="text-center max-w-2xl mx-auto mb-8 reveal">
+            <span className="inline-block bg-secondary/10 text-secondary text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
+              Real Deliverable
+            </span>
+            <h2 className="section-title">A Portfolio Website We Built</h2>
+            <p className="section-subtitle mx-auto">
+              This is the kind of portfolio site included in the Career Launch Package.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-0 rounded-2xl overflow-hidden shadow-premium-lg border border-gray-100 reveal">
+            <a
+              href="https://www.ramyakalakonda.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block border-b md:border-b-0 md:border-r border-gray-100"
+            >
+              <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-gray-100 bg-gray-50">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                <span className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                <span className="w-2.5 h-2.5 rounded-full bg-green-400" />
+                <div className="ml-3 h-5 flex-1 max-w-[220px] bg-white rounded-md border border-gray-100 flex items-center px-2">
+                  <span className="text-[10px] text-gray-400 truncate">ramyakalakonda.com</span>
+                </div>
+              </div>
+              <div className="h-56 md:h-full min-h-[220px] bg-gradient-to-br from-secondary/5 to-accent/5 flex flex-col items-center justify-center gap-3 p-8 group-hover:from-secondary/10 group-hover:to-accent/10 transition-colors">
+                <Globe size={36} className="text-secondary" />
+                <span className="text-primary font-bold text-lg">Ramya Kalakonda</span>
+                <span className="inline-flex items-center text-secondary text-sm font-medium">
+                  Visit Live Site <ArrowRight size={14} className="ml-1 group-hover:translate-x-0.5 transition-transform" />
+                </span>
+              </div>
+            </a>
+
+            <div className="p-6 md:p-8 flex flex-col justify-center bg-white">
+              <span className="inline-block text-xs font-semibold text-secondary uppercase tracking-widest mb-2">
+                Data Analyst Portfolio
+              </span>
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4">
+                Built for an MSc Data Science &amp; Analytics student, this site presents skills, projects,
+                and experience in a clean, recruiter-friendly layout — exactly what the Career Launch Package's
+                portfolio website deliverable is designed to produce.
+              </p>
+              <a
+                href="https://www.ramyakalakonda.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary font-medium text-sm hover:underline inline-flex items-center"
+              >
+                See it live <ArrowRight size={14} className="ml-1" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Pricing ── */}
       <section className="section-padding bg-gray-50" id="pricing">
         <div className="container-custom">

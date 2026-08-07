@@ -7,7 +7,7 @@ const PricingSection = () => {
     {
       name: 'Basic',
       price: '£489',
-      maintenance: '£9/month',
+      maintenance: '£9/year',
       ideal: 'Personal sites, portfolios',
       includes: [
         'SEO setup',
@@ -20,7 +20,7 @@ const PricingSection = () => {
     {
       name: 'Mid',
       price: '£2450',
-      maintenance: '£49/month',
+      maintenance: '£49/year',
       ideal: 'Startups, blogs, small businesses',
       featured: true,
       includes: [
@@ -35,7 +35,7 @@ const PricingSection = () => {
       name: 'Advanced',
       price: 'Varies',
       priceNote: 'Quote provided after consultation',
-      maintenance: '£99/month',
+      maintenance: '£99/year',
       ideal: 'Full-fledged business sites, e-commerce, or high-traffic websites. Pricing varies based on consultation and project scope.',
       includes: [
         'Everything in Mid',
