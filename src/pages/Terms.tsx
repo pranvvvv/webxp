@@ -5,7 +5,7 @@ import SEO from '../components/seo/SEO';
 import { seoConfig } from '../lib/seo-data.mjs';
 import Reveal from '@/components/ui/Reveal';
 
-const LAST_UPDATED = 'July 23, 2026';
+const LAST_UPDATED = 'August 7, 2026';
 
 const sections = [
   { id: 'introduction', title: '1. Introduction' },
@@ -16,15 +16,16 @@ const sections = [
   { id: 'revisions', title: '6. Revisions' },
   { id: 'your-responsibilities', title: '7. Your Responsibilities' },
   { id: 'intellectual-property', title: '8. Intellectual Property' },
-  { id: 'third-party', title: '9. Third-Party Services' },
-  { id: 'cancellations-refunds', title: '10. Cancellations & Refunds' },
-  { id: 'support-maintenance', title: '11. Support & Maintenance' },
-  { id: 'warranties', title: '12. Warranties & Disclaimers' },
-  { id: 'liability', title: '13. Limitation of Liability' },
-  { id: 'confidentiality', title: '14. Confidentiality' },
-  { id: 'changes', title: '15. Changes to These Terms' },
-  { id: 'governing-law', title: '16. Governing Law' },
-  { id: 'contact', title: '17. Contact Us' },
+  { id: 'third-party', title: '9. Third-Party Services & Advertising' },
+  { id: 'privacy-cookies', title: '10. Privacy & Cookies' },
+  { id: 'cancellations-refunds', title: '11. Cancellations & Refunds' },
+  { id: 'support-maintenance', title: '12. Support & Maintenance' },
+  { id: 'warranties', title: '13. Warranties & Disclaimers' },
+  { id: 'liability', title: '14. Limitation of Liability' },
+  { id: 'confidentiality', title: '15. Confidentiality' },
+  { id: 'changes', title: '16. Changes to These Terms' },
+  { id: 'governing-law', title: '17. Governing Law' },
+  { id: 'contact', title: '18. Contact Us' },
 ];
 
 const Terms = () => {
@@ -207,17 +208,33 @@ const Terms = () => {
                 </div>
 
                 <div id="third-party" className="scroll-mt-28">
-                  <h2 className="text-xl font-bold text-primary mb-3">9. Third-Party Services</h2>
+                  <h2 className="text-xl font-bold text-primary mb-3">9. Third-Party Services &amp; Advertising</h2>
                   <p>
                     Our Services may rely on or integrate with third-party tools and platforms (for example,
                     hosting providers, domain registrars, payment processors, WhatsApp, Refrens, or AI service
                     providers). We're not responsible for outages, changes, or issues caused by these third
                     parties, though we'll do our best to help you resolve them.
                   </p>
+                  <p className="mt-3">
+                    The Website displays advertising served by Google AdSense, which may use cookies to show and
+                    measure ads — see{' '}
+                    <a href="#privacy-cookies" className="text-secondary hover:underline">Section 10</a> for
+                    details.
+                  </p>
+                </div>
+
+                <div id="privacy-cookies" className="scroll-mt-28">
+                  <h2 className="text-xl font-bold text-primary mb-3">10. Privacy &amp; Cookies</h2>
+                  <p>
+                    Our use of personal data and cookies (including advertising cookies from Google AdSense) is
+                    described in full in our{' '}
+                    <a href="/privacy-policy" className="text-secondary hover:underline">Privacy Policy</a>, which
+                    forms part of these Terms. By using the Website, you also agree to that Privacy Policy.
+                  </p>
                 </div>
 
                 <div id="cancellations-refunds" className="scroll-mt-28">
-                  <h2 className="text-xl font-bold text-primary mb-3">10. Cancellations &amp; Refunds</h2>
+                  <h2 className="text-xl font-bold text-primary mb-3">11. Cancellations &amp; Refunds</h2>
                   <ul className="list-disc pl-5 space-y-1.5">
                     <li>
                       If you're a consumer entering into a contract with us online or at a distance, you
@@ -243,7 +260,7 @@ const Terms = () => {
                 </div>
 
                 <div id="support-maintenance" className="scroll-mt-28">
-                  <h2 className="text-xl font-bold text-primary mb-3">11. Support &amp; Maintenance</h2>
+                  <h2 className="text-xl font-bold text-primary mb-3">12. Support &amp; Maintenance</h2>
                   <p>
                     Where a support window is included with your package (for example, 30 days post-launch on
                     the Career Launch Package), it covers minor fixes, content updates, and bug resolution
@@ -254,7 +271,7 @@ const Terms = () => {
                 </div>
 
                 <div id="warranties" className="scroll-mt-28">
-                  <h2 className="text-xl font-bold text-primary mb-3">12. Warranties &amp; Disclaimers</h2>
+                  <h2 className="text-xl font-bold text-primary mb-3">13. Warranties &amp; Disclaimers</h2>
                   <p>
                     We aim to deliver high-quality, professional work, but we don't guarantee specific business
                     outcomes (such as a particular increase in traffic, leads, sales, or search ranking), as
@@ -266,7 +283,7 @@ const Terms = () => {
                 </div>
 
                 <div id="liability" className="scroll-mt-28">
-                  <h2 className="text-xl font-bold text-primary mb-3">13. Limitation of Liability</h2>
+                  <h2 className="text-xl font-bold text-primary mb-3">14. Limitation of Liability</h2>
                   <ul className="list-disc pl-5 space-y-1.5">
                     <li>To the extent permitted by law, our total liability arising out of or in connection with a project is limited to the total fees you paid us for that project.</li>
                     <li>We're not liable for indirect or consequential losses, including loss of profits, business, or data, arising from the use of our Services.</li>
@@ -275,7 +292,7 @@ const Terms = () => {
                 </div>
 
                 <div id="confidentiality" className="scroll-mt-28">
-                  <h2 className="text-xl font-bold text-primary mb-3">14. Confidentiality</h2>
+                  <h2 className="text-xl font-bold text-primary mb-3">15. Confidentiality</h2>
                   <p>
                     We treat information you share with us about your business as confidential and won't
                     disclose it to third parties, except where necessary to deliver the Service (for example, to
@@ -284,7 +301,7 @@ const Terms = () => {
                 </div>
 
                 <div id="changes" className="scroll-mt-28">
-                  <h2 className="text-xl font-bold text-primary mb-3">15. Changes to These Terms</h2>
+                  <h2 className="text-xl font-bold text-primary mb-3">16. Changes to These Terms</h2>
                   <p>
                     We may update these Terms from time to time to reflect changes in our Services or legal
                     requirements. The "Last updated" date at the top of this page shows when it was last
@@ -294,7 +311,7 @@ const Terms = () => {
                 </div>
 
                 <div id="governing-law" className="scroll-mt-28">
-                  <h2 className="text-xl font-bold text-primary mb-3">16. Governing Law</h2>
+                  <h2 className="text-xl font-bold text-primary mb-3">17. Governing Law</h2>
                   <p>
                     These Terms are governed by the laws of England and Wales. Any disputes will be subject to
                     the exclusive jurisdiction of the courts of England and Wales, without prejudice to any
@@ -303,7 +320,7 @@ const Terms = () => {
                 </div>
 
                 <div id="contact" className="scroll-mt-28">
-                  <h2 className="text-xl font-bold text-primary mb-3">17. Contact Us</h2>
+                  <h2 className="text-xl font-bold text-primary mb-3">18. Contact Us</h2>
                   <p>Questions about these Terms? Reach out:</p>
                   <p className="mt-3">
                     Phone / WhatsApp: <a href="tel:+447415960499" className="text-secondary hover:underline">+44 7415 960499</a>

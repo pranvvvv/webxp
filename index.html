@@ -25,6 +25,22 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
+    <!-- Google Consent Mode — must run before any Google tag. Defaults to
+         "denied" for ad/analytics storage until the cookie banner (see
+         src/components/legal/CookieConsentBanner.tsx) records a choice, per
+         Google's Consent Mode v2 requirements for AdSense in the UK/EEA. -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+      });
+      window.gtag = gtag;
+    </script>
+
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4152356032584855"
      crossorigin="anonymous"></script>

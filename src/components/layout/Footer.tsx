@@ -132,9 +132,14 @@ const Footer = () => {
           <p className="text-gray-500 text-sm text-center md:text-left">
             &copy; {new Date().getFullYear()} GetPixage. All rights reserved.
           </p>
-          <Link to="/terms" className="text-gray-500 text-sm hover:text-secondary transition-colors">
-            Terms &amp; Conditions
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link to="/privacy-policy" className="text-gray-500 text-sm hover:text-secondary transition-colors">
+              Privacy Policy
+            </Link>
+            <Link to="/terms" className="text-gray-500 text-sm hover:text-secondary transition-colors">
+              Terms &amp; Conditions
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

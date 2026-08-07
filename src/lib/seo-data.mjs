@@ -186,6 +186,13 @@ export const seoConfig = {
     path: '/terms',
     structuredData: breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Terms & Conditions', path: '/terms' }]),
   },
+  '/privacy-policy': {
+    title: 'Privacy Policy — GetPixage',
+    description:
+      'How GetPixage collects, uses, and protects your personal data, including cookies used for advertising via Google AdSense, in line with UK GDPR and PECR.',
+    path: '/privacy-policy',
+    structuredData: breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Privacy Policy', path: '/privacy-policy' }]),
+  },
 };
 
 export const notFoundSeo = {
