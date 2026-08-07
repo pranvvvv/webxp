@@ -1,19 +1,23 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import Layout from '../components/layout/Layout';
+import SEO from '../components/seo/SEO';
+import { organizationSchema, breadcrumbSchema } from '../lib/schema';
 import ContactHero from '../components/contact/ContactHero';
 import ContactForm from '../components/contact/ContactForm';
 import ContactInfo from '../components/contact/ContactInfo';
 import Reveal from '@/components/ui/Reveal';
 
 const Contact = () => {
-  useEffect(() => {
-    // Change page title
-    document.title = 'Contact Us - GetPixage';
-  }, []);
-
   return (
     <Layout>
+      <SEO
+        title="Contact GetPixage — Free Web Design Consultation | UK"
+        description="Get in touch with GetPixage for a free consultation on your website, AI automation, or SaaS project. Fast replies, clear scope, no obligation."
+        path="/contact"
+        keywords="contact GetPixage, web design quote UK, free website consultation"
+        structuredData={[organizationSchema, breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }])]}
+      />
       <ContactHero />
       <div className="section-padding bg-white">
         <div className="container-custom">

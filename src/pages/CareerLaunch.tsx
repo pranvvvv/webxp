@@ -4,6 +4,8 @@ import { ArrowRight, Check, ChevronDown, ChevronUp, FileText, Linkedin, Search, 
 import type { Variants } from 'motion/react';
 import { AnimatedGroup } from '@/components/ui/animated-group';
 import Layout from '../components/layout/Layout';
+import SEO from '../components/seo/SEO';
+import { organizationSchema, breadcrumbSchema, faqSchema } from '../lib/schema';
 
 const heroVariants: { container: Variants; item: Variants } = {
   container: {
@@ -77,9 +79,33 @@ const FAQ = ({ q, a }: { q: string; a: string }) => {
   );
 };
 
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Career Launch Package — CV, LinkedIn, Portfolio Website & Career Branding',
+  provider: { '@id': 'https://getpixage.com/#organization' },
+  areaServed: 'GB',
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'UK students and graduates',
+  },
+  description:
+    'CV redesign, LinkedIn optimisation, ATS-friendly resume, content writing, a custom portfolio website, and GitHub profile optimisation — built together for UK students and graduates entering the job market.',
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'GBP',
+    price: '849',
+    priceSpecification: {
+      '@type': 'PriceSpecification',
+      minPrice: '849',
+      maxPrice: '1250',
+      priceCurrency: 'GBP',
+    },
+  },
+};
+
 const CareerLaunch = () => {
   useEffect(() => {
-    document.title = 'Career Launch Package — GetPixage';
     window.scrollTo(0, 0);
 
     // Only inject once — Refrens auto-scans for .refrens-contact-form on load
@@ -94,6 +120,18 @@ const CareerLaunch = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Career Launch Package — CV, LinkedIn & Portfolio Website for UK Students | GetPixage"
+        description="CV redesign, LinkedIn optimisation, ATS-friendly resume, portfolio website & content writing in one package — built for UK students and graduates. From £849."
+        path="/career-launch"
+        keywords="CV writing service UK students, LinkedIn optimisation for graduates, student portfolio website, ATS resume UK, career launch package, graduate job application help"
+        structuredData={[
+          organizationSchema,
+          serviceSchema,
+          faqSchema(faqs),
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Career Launch', path: '/career-launch' }]),
+        ]}
+      />
 
       {/* ── Hero ── */}
       <section className="relative bg-gradient-to-br from-white to-gray-100 overflow-hidden">

@@ -4,7 +4,7 @@ import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Reveal from '@/components/ui/Reveal';
 
-const faqs = [
+export const faqs = [
   {
     q: 'How long does a typical project take?',
     a: 'It depends on scope: Basic sites take 5–7 business days, Mid-tier projects take 10–14 days, and Advanced/custom builds run 3–4 weeks. You\'ll get a clear estimate before we start.',
