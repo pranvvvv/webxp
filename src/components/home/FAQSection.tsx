@@ -3,33 +3,7 @@ import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Reveal from '@/components/ui/Reveal';
-
-export const faqs = [
-  {
-    q: 'How long does a typical project take?',
-    a: 'It depends on scope: Basic sites take 5–7 business days, Mid-tier projects take 10–14 days, and Advanced/custom builds run 3–4 weeks. You\'ll get a clear estimate before we start.',
-  },
-  {
-    q: "What's included in a website package?",
-    a: 'Every package includes a fully responsive design, lead-focused structure, and professional copy and visuals. Higher tiers add SEO, CMS setup, e-commerce, and custom integrations — see the Services & Packages section for the full breakdown.',
-  },
-  {
-    q: 'Do you offer support after launch?',
-    a: 'Yes. Every project includes a support window post-launch, and ongoing maintenance plans are available from £9/month for updates, monitoring, and backups.',
-  },
-  {
-    q: 'Can you add AI automation to an existing site?',
-    a: 'Yes — AI agents and workflow automation can be integrated into an existing site or business process, not just new builds.',
-  },
-  {
-    q: 'Do you only work with UK-based clients?',
-    a: "We're remote-first and primarily serve clients across the UK, but we're happy to discuss projects from anywhere.",
-  },
-  {
-    q: 'How do I get started?',
-    a: 'Message us on WhatsApp or fill out the contact form with a bit about your project — we usually reply within a few hours with next steps.',
-  },
-];
+import { homeFaqs as faqs } from '@/lib/seo-data.mjs';
 
 const FAQItem = ({ q, a }: { q: string; a: string }) => {
   const [open, setOpen] = useState(false);

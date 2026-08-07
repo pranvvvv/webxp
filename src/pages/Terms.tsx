@@ -2,7 +2,7 @@
 import React from 'react';
 import Layout from '../components/layout/Layout';
 import SEO from '../components/seo/SEO';
-import { breadcrumbSchema } from '../lib/schema';
+import { seoConfig } from '../lib/seo-data.mjs';
 import Reveal from '@/components/ui/Reveal';
 
 const LAST_UPDATED = 'July 23, 2026';
@@ -30,12 +30,7 @@ const sections = [
 const Terms = () => {
   return (
     <Layout>
-      <SEO
-        title="Terms & Conditions — GetPixage"
-        description="Read GetPixage's terms and conditions covering pricing, timelines, revisions, intellectual property, and support for web design and development projects."
-        path="/terms"
-        structuredData={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Terms & Conditions', path: '/terms' }])}
-      />
+      <SEO {...seoConfig['/terms']} />
       <section className="pt-32 pb-16 bg-gradient-to-br from-primary-100 to-secondary-100 relative overflow-hidden">
         <div className="container-custom relative z-10">
           <Reveal className="max-w-3xl mx-auto text-center">

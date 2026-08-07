@@ -4,7 +4,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Fallback title/description for pre-hydration paint; every route overrides these via the SEO component (src/components/seo/SEO.tsx) -->
+    <!-- Dev-server-only fallback (vite dev doesn't run scripts/prerender.mjs). In production
+         builds these are stripped and replaced per-route by scripts/prerender.mjs, which bakes
+         each route's real title/description/canonical/OG/JSON-LD from src/lib/seo-data.mjs
+         directly into dist/<route>/index.html. -->
     <title>GetPixage - Premium Web Design Agency | AI Automation | SaaS Development | UK</title>
     <meta name="description" content="GetPixage is a premium UK web design agency specializing in high-performance websites, AI automation, and SaaS development. Get a free consultation: +44 7415 960499." />
     <meta name="author" content="GetPixage" />

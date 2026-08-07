@@ -3,16 +3,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import SEO from '../components/seo/SEO';
+import { notFoundSeo } from '../lib/seo-data.mjs';
 
 const NotFound = () => {
   return (
     <Layout>
-      <SEO
-        title="Page Not Found | GetPixage"
-        description="The page you're looking for doesn't exist or has been moved."
-        path="/404"
-        noindex
-      />
+      <SEO {...notFoundSeo} />
       <div className="min-h-screen flex items-center justify-center bg-gray-50 py-32">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-9xl font-bold text-secondary mb-4">404</h1>

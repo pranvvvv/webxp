@@ -5,7 +5,7 @@ import type { Variants } from 'motion/react';
 import { AnimatedGroup } from '@/components/ui/animated-group';
 import Layout from '../components/layout/Layout';
 import SEO from '../components/seo/SEO';
-import { organizationSchema, breadcrumbSchema, faqSchema } from '../lib/schema';
+import { seoConfig, careerLaunchFaqs as faqs } from '../lib/seo-data.mjs';
 
 const heroVariants: { container: Variants; item: Variants } = {
   container: {
@@ -54,15 +54,6 @@ const services = [
   { icon: <Code size={18} />, title: 'GitHub Profile Optimisation ⭐', desc: 'A standout GitHub profile with pinned repos, a polished README, and activity that impresses hiring managers.' },
 ];
 
-const faqs = [
-  { q: 'How long does the full package take?', a: 'Typically 7–14 working days from when we receive all your information, depending on complexity and customisation.' },
-  { q: 'How many revisions are included?', a: 'Your CV, LinkedIn, and content writing each include up to 2 rounds of revisions. Portfolio tweaks are covered during the 1-month support period.' },
-  { q: 'Do you offer a payment plan?', a: 'Yes — we offer a 50% upfront / 50% on completion split. Get in touch to discuss flexible options.' },
-  { q: "What if I don't have any projects to show?", a: "That is exactly what our Project Development add-on is for. We build a real, course-relevant project with full source code so you have something tangible to present." },
-  { q: 'Will my CV pass ATS screening?', a: 'Yes. We format every CV with correct heading structure, keyword optimisation, and clean formatting that applicant tracking systems can parse.' },
-  { q: 'What does post-launch support cover?', a: 'Minor content updates, bug fixes, and small design tweaks to your portfolio within the first 30 days after handover.' },
-];
-
 const FAQ = ({ q, a }: { q: string; a: string }) => {
   const [open, setOpen] = useState(false);
   return (
@@ -77,31 +68,6 @@ const FAQ = ({ q, a }: { q: string; a: string }) => {
       {open && <div className="px-4 pb-3 text-gray-600 text-sm leading-relaxed">{a}</div>}
     </div>
   );
-};
-
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  serviceType: 'Career Launch Package — CV, LinkedIn, Portfolio Website & Career Branding',
-  provider: { '@id': 'https://getpixage.com/#organization' },
-  areaServed: 'GB',
-  audience: {
-    '@type': 'Audience',
-    audienceType: 'UK students and graduates',
-  },
-  description:
-    'CV redesign, LinkedIn optimisation, ATS-friendly resume, content writing, a custom portfolio website, and GitHub profile optimisation — built together for UK students and graduates entering the job market.',
-  offers: {
-    '@type': 'Offer',
-    priceCurrency: 'GBP',
-    price: '849',
-    priceSpecification: {
-      '@type': 'PriceSpecification',
-      minPrice: '849',
-      maxPrice: '1250',
-      priceCurrency: 'GBP',
-    },
-  },
 };
 
 const CareerLaunch = () => {
@@ -120,18 +86,7 @@ const CareerLaunch = () => {
 
   return (
     <Layout>
-      <SEO
-        title="Career Launch Package — CV, LinkedIn & Portfolio Website for UK Students | GetPixage"
-        description="CV redesign, LinkedIn optimisation, ATS-friendly resume, portfolio website & content writing in one package — built for UK students and graduates. From £849."
-        path="/career-launch"
-        keywords="CV writing service UK students, LinkedIn optimisation for graduates, student portfolio website, ATS resume UK, career launch package, graduate job application help"
-        structuredData={[
-          organizationSchema,
-          serviceSchema,
-          faqSchema(faqs),
-          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Career Launch', path: '/career-launch' }]),
-        ]}
-      />
+      <SEO {...seoConfig['/career-launch']} />
 
       {/* ── Hero ── */}
       <section className="relative bg-gradient-to-br from-white to-gray-100 overflow-hidden">

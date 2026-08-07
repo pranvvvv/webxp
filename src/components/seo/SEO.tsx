@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { SITE_URL } from '@/lib/seo-data.mjs';
 
-const SITE_URL = 'https://getpixage.com';
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 interface SEOProps {
@@ -52,4 +52,3 @@ const SEO = ({ title, description, path, keywords, image = DEFAULT_OG_IMAGE, noi
 };
 
 export default SEO;
-export { SITE_URL };

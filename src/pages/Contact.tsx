@@ -2,7 +2,7 @@
 import React from 'react';
 import Layout from '../components/layout/Layout';
 import SEO from '../components/seo/SEO';
-import { organizationSchema, breadcrumbSchema } from '../lib/schema';
+import { seoConfig } from '../lib/seo-data.mjs';
 import ContactHero from '../components/contact/ContactHero';
 import ContactForm from '../components/contact/ContactForm';
 import ContactInfo from '../components/contact/ContactInfo';
@@ -11,13 +11,7 @@ import Reveal from '@/components/ui/Reveal';
 const Contact = () => {
   return (
     <Layout>
-      <SEO
-        title="Contact GetPixage — Free Web Design Consultation | UK"
-        description="Get in touch with GetPixage for a free consultation on your website, AI automation, or SaaS project. Fast replies, clear scope, no obligation."
-        path="/contact"
-        keywords="contact GetPixage, web design quote UK, free website consultation"
-        structuredData={[organizationSchema, breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }])]}
-      />
+      <SEO {...seoConfig['/contact']} />
       <ContactHero />
       <div className="section-padding bg-white">
         <div className="container-custom">
