@@ -1,147 +1,32 @@
 
-import React, { useState } from 'react';
-import { toast } from '@/components/ui/use-toast';
+import React, { useEffect } from 'react';
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-  });
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    toast({
-      title: "Opening WhatsApp...",
-      description: "Send the pre-filled message to reach us.",
-    });
-
-    // Open WhatsApp with the message
-    const message = `Hello GetPixage, I have submitted a contact form:\n- Name: ${formData.name}\n- Email: ${formData.email}\n- Phone: ${formData.phone || 'N/A'}\n- Subject: ${formData.subject}\n- Message: ${formData.message}`;
-    window.open(`https://wa.me/447415960499?text=${encodeURIComponent(message)}`, '_blank');
-
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: '',
-    });
-  };
+  useEffect(() => {
+    // Only inject once — Refrens auto-scans for .refrens-contact-form on load
+    if (!document.getElementById('refrens-venera')) {
+      const script = document.createElement('script');
+      script.id = 'refrens-venera';
+      script.src = 'https://assets.refrens.com/venus/venera.1.4.3.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
 
   return (
     <div>
       <h2 className="text-2xl font-bold text-primary mb-6">Send us a message</h2>
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-              Your Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-              Email Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
-            />
-          </div>
-        </div>
-        
-        <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-            Phone Number
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
-          />
-        </div>
-        
-        <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-            Subject
-          </label>
-          <select
-            id="subject"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
-          >
-            <option value="">Select a subject</option>
-            <option value="Basic Package">Basic Package Inquiry</option>
-            <option value="Mid Package">Mid Package Inquiry</option>
-            <option value="Advanced Package">Advanced Package Inquiry</option>
-            <option value="Custom Project">Custom Project</option>
-            <option disabled>── Career Launch Package ──</option>
-            <option value="Career Launch Package">Career Launch Package (£849–£1,250)</option>
-            <option value="Career Launch - Project Add-On">Career Launch — Project Add-On (from £150)</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-            Your Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            rows={5}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
-          ></textarea>
-        </div>
-        
-        <div className="flex justify-between items-center">
-          <button
-            type="submit"
-            className="btn-primary py-3 px-8"
-          >
-            Send Message
-          </button>
-          <a 
-            href="https://wa.me/447415960499" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-secondary hover:text-secondary-600 font-medium"
-          >
-            Or contact us directly on WhatsApp
-          </a>
-        </div>
-      </form>
+      <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+        <div
+          className="refrens-contact-form refrens-contact-form--boxed"
+          data-url-key="info-webxp"
+          data-form-key="6a1fab0f630c880011e45f6e"
+          data-render-type="inline"
+        />
+      </div>
+      <p className="mt-3 text-secondary text-xs font-medium">
+        Don't see the form? Just refresh the page to load it.
+      </p>
     </div>
   );
 };

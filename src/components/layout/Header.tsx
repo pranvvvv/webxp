@@ -44,6 +44,7 @@ const Header = () => {
     );
 
   return (
+    <>
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-premium',
@@ -91,57 +92,60 @@ const Header = () => {
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
+    </header>
 
-      {/* Mobile backdrop */}
-      <div
-        className={cn(
-          'md:hidden fixed inset-0 bg-primary/40 backdrop-blur-sm transition-opacity duration-300 ease-premium z-40',
-          mobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        )}
-        onClick={() => setMobileMenuOpen(false)}
-      />
+    {/* Mobile backdrop — kept outside <header> so the header's own backdrop-blur
+        (applied when scrolled) doesn't become a containing block for this fixed
+        element and collapse it into the header's bounding box. */}
+    <div
+      className={cn(
+        'md:hidden fixed inset-0 bg-primary/40 backdrop-blur-sm transition-opacity duration-300 ease-premium z-40',
+        mobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      )}
+      onClick={() => setMobileMenuOpen(false)}
+    />
 
-      {/* Mobile drawer */}
-      <div
-        className={cn(
-          'md:hidden fixed top-0 right-0 h-full w-[82%] max-w-sm bg-white z-40 shadow-premium-lg transition-transform duration-400 ease-premium transform',
-          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        )}
-      >
-        <div className="pt-24 pb-6 px-6 flex flex-col space-y-1 h-full overflow-y-auto">
-          {[...navItems, { label: 'Career Launch', to: '/career-launch' }].map((item, i) => (
-            <Link
-              key={item.label}
-              to={item.to}
-              className={cn(
-                'font-medium text-lg py-3 border-b border-gray-100 transition-colors',
-                isActive(item.to) ? 'text-secondary' : 'text-primary hover:text-secondary'
-              )}
-              style={{
-                opacity: mobileMenuOpen ? 1 : 0,
-                transform: mobileMenuOpen ? 'translateX(0)' : 'translateX(16px)',
-                transition: `opacity 0.4s ease-out ${i * 60}ms, transform 0.4s ease-out ${i * 60}ms`,
-              }}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
+    {/* Mobile drawer — same reason as the backdrop above */}
+    <div
+      className={cn(
+        'md:hidden fixed top-0 right-0 h-full w-[82%] max-w-sm bg-white z-40 shadow-premium-lg transition-transform duration-400 ease-premium transform',
+        mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+      )}
+    >
+      <div className="pt-24 pb-6 px-6 flex flex-col space-y-1 h-full overflow-y-auto">
+        {[...navItems, { label: 'Career Launch', to: '/career-launch' }].map((item, i) => (
           <Link
-            to="/contact"
-            className="btn-primary w-full mt-6"
+            key={item.label}
+            to={item.to}
+            className={cn(
+              'font-medium text-lg py-3 border-b border-gray-100 transition-colors',
+              isActive(item.to) ? 'text-secondary' : 'text-primary hover:text-secondary'
+            )}
             style={{
               opacity: mobileMenuOpen ? 1 : 0,
-              transform: mobileMenuOpen ? 'translateY(0)' : 'translateY(12px)',
-              transition: `opacity 0.4s ease-out ${navItems.length * 60 + 60}ms, transform 0.4s ease-out ${navItems.length * 60 + 60}ms`,
+              transform: mobileMenuOpen ? 'translateX(0)' : 'translateX(16px)',
+              transition: `opacity 0.4s ease-out ${i * 60}ms, transform 0.4s ease-out ${i * 60}ms`,
             }}
             onClick={() => setMobileMenuOpen(false)}
           >
-            Get Started
+            {item.label}
           </Link>
-        </div>
+        ))}
+        <Link
+          to="/contact"
+          className="btn-primary w-full mt-6"
+          style={{
+            opacity: mobileMenuOpen ? 1 : 0,
+            transform: mobileMenuOpen ? 'translateY(0)' : 'translateY(12px)',
+            transition: `opacity 0.4s ease-out ${navItems.length * 60 + 60}ms, transform 0.4s ease-out ${navItems.length * 60 + 60}ms`,
+          }}
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          Get Started
+        </Link>
       </div>
-    </header>
+    </div>
+    </>
   );
 };
 
