@@ -64,7 +64,7 @@ const ContactInfo = () => {
             Facebook
           </a>
           <a
-            href="https://www.instagram.com/pranav.tsx?igsh=OWpuemNoenFhdjFw&utm_source=qr"
+            href="https://www.instagram.com/pranv.tsx"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-gray-700 hover:text-secondary hover:border-secondary transition-colors"

@@ -25,7 +25,7 @@ export const organizationSchema = {
   },
   sameAs: [
     'https://www.facebook.com/share/1Fo9NjLWxu/?mibextid=wwXIfr',
-    'https://www.instagram.com/pranav.tsx?igsh=OWpuemNoenFhdjFw&utm_source=qr',
+    'https://www.instagram.com/pranv.tsx',
     'https://www.linkedin.com/in/shiva-pranav-888a76340/',
   ],
 };

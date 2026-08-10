@@ -44,7 +44,7 @@ const Footer = () => {
             <div className="flex space-x-3">
               {[
                 { Icon: Facebook, href: 'https://www.facebook.com/share/1Fo9NjLWxu/?mibextid=wwXIfr', label: 'Facebook' },
-                { Icon: Instagram, href: 'https://www.instagram.com/pranav.tsx?igsh=OWpuemNoenFhdjFw&utm_source=qr', label: 'Instagram' },
+                { Icon: Instagram, href: 'https://www.instagram.com/pranv.tsx', label: 'Instagram' },
                 { Icon: Linkedin, href: 'https://www.linkedin.com/in/shiva-pranav-888a76340/', label: 'LinkedIn' },
               ].map(({ Icon, href, label }) => (
                 <a
