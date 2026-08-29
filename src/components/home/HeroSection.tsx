@@ -59,15 +59,16 @@ const HeroSection = () => {
         <div className="container-custom">
           <div className="text-center max-w-4xl mx-auto">
             <AnimatedGroup variants={transitionVariants}>
-              <div className="bg-secondary/10 group mx-auto mb-8 flex w-fit items-center gap-3 rounded-full border border-secondary/20 p-1 pl-4 shadow-glow">
-                <span className="relative flex h-2 w-2">
+              <div className="bg-secondary/10 group mx-auto mb-8 flex max-w-full w-fit items-center gap-2 sm:gap-3 rounded-full border border-secondary/20 p-1 pl-3 sm:pl-4 shadow-glow">
+                <span className="relative flex h-2 w-2 shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary" />
                 </span>
-                <span className="text-secondary text-xs font-semibold uppercase tracking-widest">
-                  50+ Projects Delivered — Trusted UK-Wide
+                <span className="text-secondary text-[10px] sm:text-xs font-semibold uppercase tracking-widest whitespace-nowrap">
+                  <span className="sm:hidden">Trusted Worldwide</span>
+                  <span className="hidden sm:inline">50+ Projects Delivered — Trusted Worldwide</span>
                 </span>
-                <span className="bg-white size-6 overflow-hidden rounded-full flex items-center justify-center">
+                <span className="bg-white size-6 overflow-hidden rounded-full flex items-center justify-center shrink-0">
                   <Star size={12} className="fill-secondary text-secondary" />
                 </span>
               </div>

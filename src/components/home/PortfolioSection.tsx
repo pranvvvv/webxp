@@ -41,6 +41,20 @@ const portfolioItems: PortfolioItem[] = [
     description: 'A clean personal portfolio for a data analyst — skills, projects, and experience presented to stand out to recruiters.',
     link: 'https://www.ramyakalakonda.com/',
   },
+  {
+    title: 'Grand Café 241',
+    category: 'Coffee Shop & Bakery',
+    image: '/portfolio-grandcafe241.png',
+    description: 'A warm, editorial-style site for a neighbourhood coffee shop, bakery, and bar in Selhurst, London — menu showcase, story, and easy ordering.',
+    link: 'https://coffee-shop-web-bay.vercel.app/',
+  },
+  {
+    title: 'Mana Business Talks',
+    category: 'Marketing Agency',
+    image: '/portfolio-manabusinesstalks.png',
+    description: 'A bold agency site for a Hyderabad-based social media marketing agency — services, results, and a clear "start the project" path.',
+    link: 'https://manabusinessweb.vercel.app/',
+  },
 ];
 
 const PortfolioSection = () => {

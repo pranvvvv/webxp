@@ -6,13 +6,14 @@ import { toast } from '@/components/ui/use-toast';
 
 const quickLinks = [
   { label: 'Home', to: '/' },
+  { label: 'Services & Pricing', to: '/services' },
   { label: 'About Us', to: '/about' },
   { label: 'Portfolio', to: '/recent-work' },
   { label: 'Career Launch', to: '/career-launch' },
   { label: 'Contact', to: '/contact' },
 ];
 
-const services = ['Website Design', 'Website Development', 'UI/UX Design', 'AI Automation', 'SEO & Analytics'];
+const services = ['Website Development', 'SEO', 'Content Writing', 'Meta Ads', 'Booking Systems', 'Automations', 'AI Calling Agents'];
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -79,7 +80,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {services.map((item) => (
                 <li key={item}>
-                  <Link to="/contact" className="text-gray-400 hover:text-secondary transition-colors">
+                  <Link to="/services" className="text-gray-400 hover:text-secondary transition-colors">
                     {item}
                   </Link>
                 </li>
@@ -114,7 +115,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPin size={18} className="mr-2 mt-0.5 text-secondary shrink-0" />
-                <span className="text-gray-400 text-sm">Serving clients across the UK</span>
+                <span className="text-gray-400 text-sm">Serving small businesses worldwide — including India &amp; the UK</span>
               </li>
               <li className="flex items-center">
                 <Phone size={18} className="mr-2 text-secondary shrink-0" />

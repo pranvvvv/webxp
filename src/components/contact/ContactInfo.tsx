@@ -34,7 +34,7 @@ const ContactInfo = () => {
             <div>
               <h3 className="font-bold text-primary">Service Area</h3>
               <p className="text-gray-600">
-                Remote-first, serving clients across the UK
+                Remote-first, serving small businesses worldwide — including India &amp; the UK
               </p>
             </div>
           </div>
@@ -88,7 +88,7 @@ const ContactInfo = () => {
         <MessageCircle className="mx-auto mb-3 text-secondary" size={32} />
         <h3 className="font-bold text-lg mb-2">Prefer to chat directly?</h3>
         <p className="text-gray-300 text-sm mb-5 max-w-sm mx-auto">
-          We work remotely with clients across the UK. Message us on WhatsApp and we'll usually reply within a few hours.
+          We work remotely with small businesses worldwide. Message us on WhatsApp and we'll usually reply within a few hours.
         </p>
         <a
           href="https://wa.me/447415960499?text=Hi%20GetPixage%2C%20I%27d%20like%20to%20get%20in%20touch"

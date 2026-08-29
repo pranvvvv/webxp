@@ -11,14 +11,19 @@ export const organizationSchema = {
   name: 'GetPixage',
   alternateName: 'Get Pixage',
   description:
-    'Premium UK web design agency specializing in high-performance websites, AI automation, and SaaS development.',
+    'Worldwide web design and digital growth agency — websites, SEO, content, meta ads, automation, and AI calling agents for small businesses everywhere, including India and the UK.',
   url: SITE_URL,
   logo: `${SITE_URL}/favicon-32x32.png`,
   image: `${SITE_URL}/og-image.png`,
   telephone: '+44-7415-960499',
   email: 'WebXp.combusiness@gmail.com',
-  priceRange: '££',
-  areaServed: 'GB',
+  priceRange: '₹₹',
+  areaServed: [
+    { '@type': 'Country', name: 'India' },
+    { '@type': 'Country', name: 'United Kingdom' },
+    { '@type': 'Country', name: 'United States' },
+    'Worldwide',
+  ],
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'GB',
@@ -86,8 +91,8 @@ export const homeFaqs = [
     a: 'Yes — AI agents and workflow automation can be integrated into an existing site or business process, not just new builds.',
   },
   {
-    q: 'Do you only work with UK-based clients?',
-    a: "We're remote-first and primarily serve clients across the UK, but we're happy to discuss projects from anywhere.",
+    q: 'Do you work with businesses outside the UK?',
+    a: "Yes — we're remote-first and work with small businesses worldwide, including a growing number of clients across India, the UK, and the US.",
   },
   {
     q: 'How do I get started?',
@@ -104,6 +109,48 @@ export const careerLaunchFaqs = [
   { q: 'Will my CV pass ATS screening?', a: 'Yes. We format every CV with correct heading structure, keyword optimisation, and clean formatting that applicant tracking systems can parse.' },
   { q: 'What does post-launch support cover?', a: 'Minor content updates, bug fixes, and small design tweaks to your portfolio within the first 30 days after handover.' },
 ];
+
+// Rendered verbatim in pages/Services.tsx — keep in sync with the FAQPage schema below.
+export const servicesFaqs = [
+  { q: 'Do you work with small businesses outside India?', a: 'Yes. We serve small businesses worldwide — pricing is shown in INR, USD, and GBP so you can see costs in your own currency, and we can bill in whichever currency suits you.' },
+  { q: 'What does "starting from" mean on your pricing?', a: 'It is the entry price for the simplest version of that service. Final pricing depends on scope — pages, features, ad spend, or integrations required — and is confirmed on a free consultation call.' },
+  { q: 'Do I need all of these services at once?', a: 'No. Most clients start with one or two — usually a website plus SEO or ads — and add automations, booking systems, or an AI calling agent once the basics are live. See the "What does my business need?" section for guidance.' },
+  { q: 'Is ad spend included in the Meta Ads price?', a: 'No. The price listed is our management fee. Ad spend (what you pay Meta/Facebook directly) is separate and set by your budget.' },
+  { q: 'How does an AI calling agent work?', a: 'It is an AI voice agent that answers or makes calls for your business — handling FAQs, bookings, and lead qualification 24/7 — and hands off to a human when needed.' },
+  { q: 'What are your payment terms?', a: 'Typically 50% upfront and 50% on delivery for one-off projects; SEO, ads, and automation retainers are billed monthly. Full terms are on our Terms & Conditions page.' },
+];
+
+const servicesServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Website Development, SEO, Content Writing, Meta Ads, Booking Systems, Automation & AI Calling Agents',
+  provider: { '@id': `${SITE_URL}/#organization` },
+  areaServed: [
+    { '@type': 'Country', name: 'India' },
+    { '@type': 'Country', name: 'United Kingdom' },
+    { '@type': 'Country', name: 'United States' },
+    'Worldwide',
+  ],
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Small and growing businesses',
+  },
+  description:
+    'Website development, SEO, content writing, Meta ads management, booking systems, business automation, and AI calling agents for small businesses worldwide, priced in INR, USD, and GBP.',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'GetPixage Services',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Website Development' }, priceCurrency: 'INR', price: '20000', priceSpecification: { '@type': 'PriceSpecification', minPrice: '20000', priceCurrency: 'INR' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'SEO' }, priceCurrency: 'INR', price: '2000', priceSpecification: { '@type': 'PriceSpecification', minPrice: '2000', priceCurrency: 'INR', unitText: 'MONTH' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Content Writing' }, priceCurrency: 'INR', price: '3000', priceSpecification: { '@type': 'PriceSpecification', minPrice: '3000', priceCurrency: 'INR' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Meta Ads Management' }, priceCurrency: 'INR', price: '5000', priceSpecification: { '@type': 'PriceSpecification', minPrice: '5000', priceCurrency: 'INR', unitText: 'MONTH' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Booking Systems' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Business Automation' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Calling Agents' } },
+    ],
+  },
+};
 
 const careerLaunchServiceSchema = {
   '@context': 'https://schema.org',
@@ -135,11 +182,11 @@ const careerLaunchServiceSchema = {
 // so every route's raw HTML carries the same tags Helmet would set client-side.
 export const seoConfig = {
   '/': {
-    title: 'GetPixage — Premium Web Design Agency | AI Automation & SaaS Development (UK)',
+    title: 'GetPixage — Web Design & Digital Growth Agency for Small Businesses Worldwide',
     description:
-      'GetPixage designs and builds high-converting websites, AI automation, and SaaS products for UK businesses. 50+ projects delivered. Get a free consultation today.',
+      'GetPixage builds high-converting websites, SEO, AI automation, and SaaS products for small businesses worldwide — including India, the UK, and the US. 50+ projects delivered. Get a free consultation today.',
     path: '/',
-    keywords: 'web design agency UK, website design and development, AI automation, SaaS development, custom website design, conversion-focused web design',
+    keywords: 'web design agency, website design and development India, small business website worldwide, AI automation, SaaS development, custom website design, conversion-focused web design',
     structuredData: [organizationSchema, websiteSchema, faqSchema(homeFaqs)],
   },
   '/about': {
@@ -153,10 +200,23 @@ export const seoConfig = {
   '/recent-work': {
     title: 'Recent Work & Case Studies — GetPixage Web Design Portfolio',
     description:
-      "See live websites GetPixage has designed and built, including TrainWithTej, Auravein, DRRKS Consultancy, and a student data-analyst portfolio — real client results.",
+      "See live websites GetPixage has designed and built, including TrainWithTej, Auravein, DRRKS Consultancy, Grand Café 241, and Mana Business Talks — real client results.",
     path: '/recent-work',
     keywords: 'GetPixage portfolio, web design case studies, website examples UK, client websites',
     structuredData: [organizationSchema, breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Recent Work', path: '/recent-work' }])],
+  },
+  '/services': {
+    title: 'Services & Pricing — Website, SEO, Ads, Automation & AI Calling Agents | GetPixage',
+    description:
+      'Website development from ₹20,000, SEO from ₹2,000, content writing from ₹3,000, Meta ads from ₹5,000/month, plus booking systems, automation & AI calling agents — for small businesses worldwide.',
+    path: '/services',
+    keywords: 'website development pricing India, SEO packages small business, content writing service, meta ads management price, booking system for business, business automation, AI calling agent for business',
+    structuredData: [
+      organizationSchema,
+      servicesServiceSchema,
+      faqSchema(servicesFaqs),
+      breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Services & Pricing', path: '/services' }]),
+    ],
   },
   '/career-launch': {
     title: 'Career Launch Package — CV, LinkedIn & Portfolio Website for UK Students | GetPixage',

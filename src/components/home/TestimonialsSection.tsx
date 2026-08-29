@@ -56,6 +56,23 @@ const testimonials = [
     ),
     rating: 5,
   },
+  {
+    name: 'Grand Café 241',
+    company: 'Coffee Shop & Bakery',
+    domain: 'grandcafe241',
+    url: 'https://coffee-shop-web-bay.vercel.app/',
+    screenshot: '/portfolio-grandcafe241.png',
+    quote: (
+      <>
+        "GetPixage gave our coffee shop a warm, welcoming site that actually reflects Grand Café 241 — the menu is easy to browse and it's already bringing people in the door. See it here: "
+        <a href="https://coffee-shop-web-bay.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-secondary underline ml-1">
+          Grand Café 241
+        </a>
+        ."
+      </>
+    ),
+    rating: 5,
+  },
 ];
 
 const trustHighlights = [

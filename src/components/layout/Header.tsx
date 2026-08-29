@@ -11,6 +11,8 @@ const navItems = [
   { label: 'Contact', to: '/contact' },
 ];
 
+const mobileNavItems = [...navItems, { label: 'Services', to: '/services' }, { label: 'Career Launch', to: '/career-launch' }];
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -67,6 +69,19 @@ const Header = () => {
             </Link>
           ))}
           <div className="relative group">
+            <Link to="/services" className={cn(navLinkClasses('/services'), 'flex items-center gap-1')}>
+              Services
+              <svg className="w-3 h-3 mt-0.5 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </Link>
+            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-white shadow-premium-lg border border-gray-100 rounded-2xl p-4 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-premium z-50">
+              <p className="font-semibold text-primary text-sm mb-1">Services & Pricing</p>
+              <p className="text-gray-500 text-xs leading-relaxed mb-3">Websites, SEO, content, meta ads, booking systems, automation & AI calling agents — for businesses worldwide.</p>
+              <span className="text-secondary text-xs font-semibold">Websites from ₹20,000 →</span>
+            </div>
+          </div>
+          <div className="relative group">
             <Link to="/career-launch" className={cn(navLinkClasses('/career-launch'), 'flex items-center gap-1')}>
               Career Launch
               <svg className="w-3 h-3 mt-0.5 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -113,7 +128,7 @@ const Header = () => {
       )}
     >
       <div className="pt-24 pb-6 px-6 flex flex-col space-y-1 h-full overflow-y-auto">
-        {[...navItems, { label: 'Career Launch', to: '/career-launch' }].map((item, i) => (
+        {mobileNavItems.map((item, i) => (
           <Link
             key={item.label}
             to={item.to}
@@ -137,7 +152,7 @@ const Header = () => {
           style={{
             opacity: mobileMenuOpen ? 1 : 0,
             transform: mobileMenuOpen ? 'translateY(0)' : 'translateY(12px)',
-            transition: `opacity 0.4s ease-out ${navItems.length * 60 + 60}ms, transform 0.4s ease-out ${navItems.length * 60 + 60}ms`,
+            transition: `opacity 0.4s ease-out ${mobileNavItems.length * 60 + 60}ms, transform 0.4s ease-out ${mobileNavItems.length * 60 + 60}ms`,
           }}
           onClick={() => setMobileMenuOpen(false)}
         >
